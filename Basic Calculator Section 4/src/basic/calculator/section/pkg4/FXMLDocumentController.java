@@ -19,7 +19,10 @@ import javafx.scene.control.TextField;
  * @author kmhasan
  */
 public class FXMLDocumentController implements Initializable {
-
+    int number1;
+    int number2;
+    char operator;
+    
     @FXML
     private TextField displayField;
 
@@ -40,6 +43,32 @@ public class FXMLDocumentController implements Initializable {
         String oldText = displayField.getText();
         String newText = oldText + "2";
         displayField.setText(newText);
+    }
+
+    @FXML
+    private void handleEqualAction(ActionEvent event) {
+        String secondNumber = displayField.getText();
+        number2 = Integer.parseInt(secondNumber);
+        int result = 0;
+        // write if/else to make sure we are using the right operator
+        result = number1 + number2;
+        displayField.setText("" + result);
+    }
+
+    @FXML
+    private void handleAdditionAction(ActionEvent event) {
+        String firstNumber = displayField.getText();
+        number1 = Integer.parseInt(firstNumber);
+        displayField.clear();
+        operator = '+';
+    }
+
+    @FXML
+    private void handleSubtractionAction(ActionEvent event) {
+        String firstNumber = displayField.getText();
+        number1 = Integer.parseInt(firstNumber);
+        displayField.clear();
+        operator = '-';
     }
 
 }
