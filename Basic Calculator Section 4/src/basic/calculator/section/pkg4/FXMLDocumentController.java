@@ -19,10 +19,11 @@ import javafx.scene.control.TextField;
  * @author kmhasan
  */
 public class FXMLDocumentController implements Initializable {
-    int number1;
-    int number2;
+
+    double number1;
+    double number2;
     char operator;
-    
+
     @FXML
     private TextField displayField;
 
@@ -48,17 +49,23 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleEqualAction(ActionEvent event) {
         String secondNumber = displayField.getText();
-        number2 = Integer.parseInt(secondNumber);
-        int result = 0;
+        number2 = Double.parseDouble(secondNumber);
+        double result = 0;
         // write if/else to make sure we are using the right operator
-        result = number1 + number2;
+        if (operator == '+') {
+            result = number1 + number2;
+        } else if (operator == '-') {
+            result = number1 - number2;
+        } else if (operator == '/') {
+            result = number1 / number2;
+        }
         displayField.setText("" + result);
     }
 
     @FXML
     private void handleAdditionAction(ActionEvent event) {
         String firstNumber = displayField.getText();
-        number1 = Integer.parseInt(firstNumber);
+        number1 = Double.parseDouble(firstNumber);
         displayField.clear();
         operator = '+';
     }
@@ -66,9 +73,60 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleSubtractionAction(ActionEvent event) {
         String firstNumber = displayField.getText();
-        number1 = Integer.parseInt(firstNumber);
+        number1 = Double.parseDouble(firstNumber);
         displayField.clear();
         operator = '-';
+    }
+
+    @FXML
+    private void handleDivisionAction(ActionEvent event) {
+        String firstNumber = displayField.getText();
+        number1 = Double.parseDouble(firstNumber);
+        displayField.clear();
+        operator = '/';
+    }
+
+    @FXML
+    private void handleDotAction(ActionEvent event) {
+        String oldText = displayField.getText();
+        if (!oldText.contains(".")) {
+            String newText = oldText + ".";
+            displayField.setText(newText);
+        }
+    }
+
+    @FXML
+    private void handleZeroAction(ActionEvent event) {
+        // fix this part so that we do not have any leading zeros
+        // for integers
+        String oldText = displayField.getText();
+        String newText = oldText + "0";
+        displayField.setText(newText);        
+    }
+
+    @FXML
+    private void handleThreeAction(ActionEvent event) {
+        String oldText = displayField.getText();
+        String newText = oldText + "3";
+        displayField.setText(newText);        
+    }
+
+    @FXML
+    private void handleAllClearAction(ActionEvent event) {
+        displayField.setText("");
+        // displayField.clear();
+    }
+
+    @FXML
+    private void handleClearAction(ActionEvent event) {
+        String oldText = displayField.getText();
+/*
+        String newText = "";
+        for (int i = 0; i < oldText.length() - 1; i++)
+            newText = newText + oldText.charAt(i);
+*/
+        String newText = oldText.substring(0, oldText.length() - 1);
+        displayField.setText(newText);
     }
 
 }

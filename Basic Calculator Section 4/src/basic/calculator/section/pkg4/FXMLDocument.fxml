@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="227.0" prefWidth="193.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basic.calculator.section.pkg4.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="259.0" prefWidth="193.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basic.calculator.section.pkg4.FXMLDocumentController">
    <children>
       <GridPane layoutX="14.0" layoutY="14.0" prefHeight="220.0" prefWidth="175.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columnConstraints>
@@ -17,6 +17,7 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -24,22 +25,24 @@
         </rowConstraints>
          <children>
             <TextField fx:id="displayField" GridPane.columnSpan="2147483647" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="0" GridPane.rowIndex="4" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="." GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEqualAction" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOneAction" text="1" GridPane.rowIndex="3" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleTwoAction" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="4" GridPane.rowIndex="2" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="7" GridPane.rowIndex="1" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleAdditionAction" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleSubtractionAction" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleZeroAction" text="0" GridPane.rowIndex="5" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDotAction" text="." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEqualAction" text="=" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOneAction" text="1" GridPane.rowIndex="4" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleTwoAction" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleThreeAction" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="4" GridPane.rowIndex="3" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="7" GridPane.rowIndex="2" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleAdditionAction" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleSubtractionAction" text="-" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" text="*" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDivisionAction" text="/" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleAllClearAction" text="AC" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button minHeight="36.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearAction" text="C" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
