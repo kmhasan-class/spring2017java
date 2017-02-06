@@ -100,15 +100,18 @@ public class FXMLDocumentController implements Initializable {
         // fix this part so that we do not have any leading zeros
         // for integers
         String oldText = displayField.getText();
-        String newText = oldText + "0";
-        displayField.setText(newText);        
+        //if (oldText.length() != 1 || oldText.charAt(0) != '0') {
+        if (!oldText.equals("0")) {
+            String newText = oldText + "0";
+            displayField.setText(newText);
+        }
     }
 
     @FXML
     private void handleThreeAction(ActionEvent event) {
         String oldText = displayField.getText();
         String newText = oldText + "3";
-        displayField.setText(newText);        
+        displayField.setText(newText);
     }
 
     @FXML
@@ -120,11 +123,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleClearAction(ActionEvent event) {
         String oldText = displayField.getText();
-/*
+        /*
         String newText = "";
         for (int i = 0; i < oldText.length() - 1; i++)
             newText = newText + oldText.charAt(i);
-*/
+         */
         String newText = oldText.substring(0, oldText.length() - 1);
         displayField.setText(newText);
     }
