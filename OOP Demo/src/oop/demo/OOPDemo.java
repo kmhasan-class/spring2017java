@@ -24,6 +24,7 @@ public class OOPDemo {
     }
 
     public static void main(String[] args) {
+        /*
         double x1 = 10, y1 = 5;
         double x2 = 3, y2 = 15;
         System.out.printf("Distance %f\n", getDistance(x1, y1, x2, y2));
@@ -38,6 +39,13 @@ public class OOPDemo {
         String str = "1356";
         int x = convertStringToInteger(str);
         System.out.println(x);
+        */
+        
+        Point p1; // declaration
+        p1 = new Point(2, 3); // instanciation
+        p1.translate(5, -2);
+        //p1.rotate(53);
+        System.out.printf("(%.2f, %.2f)\n", p1.getX(), p1.getY());
     }
 
 }
