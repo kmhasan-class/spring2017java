@@ -46,6 +46,16 @@ public class OOPDemo {
         p1.translate(5, -2);
         //p1.rotate(53);
         System.out.printf("(%.2f, %.2f)\n", p1.getX(), p1.getY());
+        
+        Rectangle r;
+        r = new Rectangle(5, 4);
+        System.out.printf("Area of %s = %f\n", r.getName(), r.getArea());
+        System.out.printf("Perimeter of %s = %f\n", r.getName(), r.getPerimeter());
+        
+        Square s;
+        s = new Square(50);
+        System.out.printf("Area of %s = %f\n", s.getName(), s.getArea());
+        System.out.printf("Perimeter of %s = %f\n", s.getName(), s.getPerimeter());
     }
 
 }
