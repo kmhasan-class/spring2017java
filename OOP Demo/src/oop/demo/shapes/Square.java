@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oop.demo;
+package oop.demo.shapes;
 
 /**
  *
@@ -30,6 +30,6 @@ public class Square {
 public class Square extends Rectangle {
     public Square(double l) {
         super(l, l);
-        setName("Square");
+        name = "Square";
     }
 }

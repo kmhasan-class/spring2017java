@@ -3,28 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oop.demo;
+package oop.demo.shapes;
 
 /**
  *
  * @author kmhasan
  */
-public class Rectangle {
+public class Rectangle extends Shape {
     private double width;
     private double height;
-    private String name;
     
     public Rectangle(double w, double h) {
         name = "Rectangle";
         width = w;
         height = h;
     }
-    
-    // setter/mutator method
-    public void setName(String n) {
-        name = n;
-    }
-    
+
     public double getArea() {
         return width * height;
     }
@@ -32,8 +26,5 @@ public class Rectangle {
     public double getPerimeter() {
         return 2 * (width + height);
     }
-    
-    public String getName() {
-        return name;
-    }
+
 }

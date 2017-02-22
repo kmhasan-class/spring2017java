@@ -1,5 +1,11 @@
 package oop.demo;
 
+import oop.demo.shapes.Circle;
+import oop.demo.shapes.Square;
+import oop.demo.shapes.Rectangle;
+import oop.demo.shapes.Shape;
+// import is just a shorthand
+
 public class OOPDemo {
 
     static double getDistance(double x1, double y1, double x2, double y2) {
@@ -40,22 +46,21 @@ public class OOPDemo {
         int x = convertStringToInteger(str);
         System.out.println(x);
         */
-        
+        /*
         Point p1; // declaration
         p1 = new Point(2, 3); // instanciation
         p1.translate(5, -2);
         //p1.rotate(53);
         System.out.printf("(%.2f, %.2f)\n", p1.getX(), p1.getY());
-        
-        Rectangle r;
-        r = new Rectangle(5, 4);
-        System.out.printf("Area of %s = %f\n", r.getName(), r.getArea());
-        System.out.printf("Perimeter of %s = %f\n", r.getName(), r.getPerimeter());
-        
-        Square s;
-        s = new Square(50);
-        System.out.printf("Area of %s = %f\n", s.getName(), s.getArea());
-        System.out.printf("Perimeter of %s = %f\n", s.getName(), s.getPerimeter());
+        */
+  
+        Shape shapes[] = new Shape[3];
+        shapes[0] = new Rectangle(5, 4);
+        shapes[1] = new Square(50);
+        shapes[2] = new Circle(10);
+        for (int i = 0; i < shapes.length; i++)
+            shapes[i].printAreaAndPerimeter();
+
     }
 
 }
