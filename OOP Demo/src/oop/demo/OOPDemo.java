@@ -1,9 +1,12 @@
 package oop.demo;
 
 import oop.demo.shapes.Circle;
+import oop.demo.shapes.Polygon;
 import oop.demo.shapes.Square;
 import oop.demo.shapes.Rectangle;
 import oop.demo.shapes.Shape;
+import oop.demo.shapes.Triangle;
+
 // import is just a shorthand
 
 public class OOPDemo {
@@ -53,11 +56,20 @@ public class OOPDemo {
         //p1.rotate(53);
         System.out.printf("(%.2f, %.2f)\n", p1.getX(), p1.getY());
         */
+        
+        Point pointArray[] = new Point[3];
+        pointArray[0] = new Point(0, 0);
+        pointArray[1] = new Point(1, 0);
+        pointArray[2] = new Point(0, 1);
   
-        Shape shapes[] = new Shape[3];
+        Shape shapes[] = new Shape[6];
         shapes[0] = new Rectangle(5, 4);
         shapes[1] = new Square(50);
         shapes[2] = new Circle(10);
+        shapes[3] = new Triangle(4, 5, 8);
+        shapes[4] = new Triangle(new Point(0, 0), new Point(1, 0), new Point(0, 1));
+        shapes[5] = new Polygon(pointArray);
+        
         for (int i = 0; i < shapes.length; i++)
             shapes[i].printAreaAndPerimeter();
 
