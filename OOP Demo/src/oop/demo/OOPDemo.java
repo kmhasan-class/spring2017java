@@ -6,6 +6,7 @@ import oop.demo.shapes.Square;
 import oop.demo.shapes.Rectangle;
 import oop.demo.shapes.Shape;
 import oop.demo.shapes.Triangle;
+import java.util.ArrayList;
 
 // import is just a shorthand
 
@@ -62,6 +63,7 @@ public class OOPDemo {
         pointArray[1] = new Point(1, 0);
         pointArray[2] = new Point(0, 1);
   
+        /*
         Shape shapes[] = new Shape[6];
         shapes[0] = new Rectangle(5, 4);
         shapes[1] = new Square(50);
@@ -69,10 +71,22 @@ public class OOPDemo {
         shapes[3] = new Triangle(4, 5, 8);
         shapes[4] = new Triangle(new Point(0, 0), new Point(1, 0), new Point(0, 1));
         shapes[5] = new Polygon(pointArray);
+        */
         
-        for (int i = 0; i < shapes.length; i++)
-            shapes[i].printAreaAndPerimeter();
+        ArrayList<Shape> shapes = new ArrayList<>();
+        shapes.add(new Rectangle(5, 4));
+        shapes.add(new Square(50));
+        shapes.add(new Circle(10));
+        shapes.add(new Triangle(4, 5, 8));
+        shapes.add(new Triangle(new Point(0, 0), new Point(1, 0), new Point(0, 1)));
+        shapes.add(new Polygon(pointArray));
 
+        shapes.remove(0);
+        shapes.remove(3);
+        shapes.remove(3);
+        
+        for (Shape s : shapes)
+            s.printAreaAndPerimeter();
     }
 
 }
