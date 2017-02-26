@@ -9,18 +9,16 @@ package inheritance.demo.shapes;
  *
  * @author kmhasan
  */
-public class Shape {
-    public double getPerimeter() {
-        return 0.0;
-    }
+public abstract class Shape {
+    protected String name;
     
-    public double getArea() {
-        return 0.0;
-    }
+    public abstract double getPerimeter();
+    
+    public abstract double getArea();
     
     public void printAreaAndPerimeter() {
-        System.out.printf("Area of the shape: %.3f, perimeter of the shape: %.3f\n",
-                getArea(), getPerimeter());
+        System.out.printf("Area of the %s: %.3f, perimeter of the %s: %.3f\n",
+                name, getArea(), name, getPerimeter());
     }
     
 }

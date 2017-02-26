@@ -5,20 +5,23 @@
  */
 package inheritance.demo.shapes;
 
-import inheritance.demo.shapes.Rectangle;
-
 /**
  *
  * @author kmhasan
  */
-public class SquareInheritance extends Rectangle {
-    public SquareInheritance(double length) {
-        super(length, length);
-        name = "Square";
+// HomeWork: implement this
+// references: http://mathworld.wolfram.com/PolygonArea.html
+// https://uva.onlinejudge.org/external/1/109.pdf
+public class Polygon extends Shape {
+
+    @Override
+    public double getPerimeter() {
+        return 0.0;
     }
-    
+
     @Override
     public double getArea() {
-        return length * length + 2 * length;
+        return 0.0;
     }
+    
 }

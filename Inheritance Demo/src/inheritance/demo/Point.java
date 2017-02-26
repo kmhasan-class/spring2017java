@@ -22,4 +22,12 @@ public class Point {
         x = a;
         y = b;
     }
+    
+    public double getX() {
+        return x;
+    }
+    
+    public double getY() {
+        return y;
+    }
 }
