@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -85,11 +86,37 @@ public class FileIODemoSection4 {
         }
     }
 
+    public void task1() {
+        try {
+            RandomAccessFile inputFile = new RandomAccessFile("numbers.txt", "r");
+            
+            int n = Integer.parseInt(inputFile.readLine());
+            
+            ArrayList<Integer> numbersList = new ArrayList<>();
+            for (int i = 0; i < n; i++)
+                numbersList.add(Integer.parseInt(inputFile.readLine()));
+            
+            int sum = 0;
+            for (Integer num : numbersList)
+                sum = sum + num;
+            
+            System.out.println("Sum is " + sum);
+            
+            // home work: do the min, max and average calculations
+            // challenge: try to compute the standard deviation
+        } catch (FileNotFoundException fnfe) {
+            System.err.println("File not found!");
+        } catch (IOException ioe) {
+            System.err.println("IOException");
+        }
+    }
+
     public FileIODemoSection4() {
 //        readUsingScanner();
 //        readUsingBufferedReader();
 //        readFromFile();
-        writeToFile();
+//        writeToFile();
+        task1();
     }
 
     /**
