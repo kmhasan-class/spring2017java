@@ -8,6 +8,7 @@ package property.demo;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -30,7 +31,21 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            Connection connection = DriverManager
+                    .getConnection("jdbc:mysql://172.17.0.134/propertydb",
+                            "javauser",
+                            "java");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM property");
+            while (resultSet.next()) {
+                int propertyId = resultSet.getInt("propertyId");
+                String owner = resultSet.getString("ownersName");
+                System.out.println(propertyId + ";" + owner);
+            }
+        } catch (SQLException sqle) {
+
+        }
     }
 
     @FXML
@@ -40,7 +55,7 @@ public class FXMLDocumentController implements Initializable {
         try {
             Connection connection = DriverManager
                     .getConnection("jdbc:mysql://172.17.0.134/propertydb",
-                            "javauser", 
+                            "javauser",
                             "java");
             Statement statement = connection.createStatement();
             statement.executeUpdate("INSERT INTO property VALUES(" + propertyId + ", '" + ownersName + "')");
