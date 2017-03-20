@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="listview.demo.section.pkg4.FXMLDocumentController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="361.0">
+              <items>
+                  <Label text="Color Name" />
+                  <TextField fx:id="colorNameField" />
+                <Button mnemonicParsing="false" onAction="#handleAddColorAction" text="Add Color" />
+              </items>
+            </ToolBar>
+            <ComboBox fx:id="colorsNameComboBox" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
+            </ComboBox>
+            <ListView fx:id="colorsListView" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
