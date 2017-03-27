@@ -24,6 +24,7 @@ public class DBDemo extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setTitle("Database Demo Application");
         stage.show();
     }
 
