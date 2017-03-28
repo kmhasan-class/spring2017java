@@ -11,6 +11,26 @@
    <children>
       <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Open" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleCloseAction" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
             <HBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                <children>
                   <GridPane layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
@@ -33,6 +53,9 @@
                             <Button mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete" />
                               <Button mnemonicParsing="false" onAction="#handleSubmitAction" text="Submit" />
                           </items>
+                           <GridPane.margin>
+                              <Insets top="14.0" />
+                           </GridPane.margin>
                         </ToolBar>
                      </children>
                   </GridPane>
@@ -42,7 +65,19 @@
                      </HBox.margin>
                   </ListView>
                </children>
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
             </HBox>
+            <TableView fx:id="ownersTableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                  <TableColumn fx:id="propertyIdColumn" prefWidth="98.0" text="Property Id" />
+                <TableColumn fx:id="ownersNameColumn" prefWidth="298.0" text="Owner's Name" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
+            </TableView>
             <Label fx:id="statusLabel" maxWidth="1.7976931348623157E308">
                <VBox.margin>
                   <Insets top="14.0" />
