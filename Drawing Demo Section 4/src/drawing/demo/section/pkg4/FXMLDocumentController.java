@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -31,12 +32,20 @@ public class FXMLDocumentController implements Initializable {
         double width = drawingCanvas.getWidth();
         double height = drawingCanvas.getHeight();
         
+        gc.setStroke(Color.LIGHTGRAY);
+        for (int x = 0; x <= width; x += 20)
+            gc.strokeLine(x, 0, x, height);
+        
+        for (int y = 0; y <= height; y += 20)
+            gc.strokeLine(0, y, width, y);
+        
     }
     
     public void draw() {
         drawGrid();
         
         GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
+        gc.setStroke(Color.BLACK);
         gc.strokeLine(300, 175, 600, 0);
         gc.strokeLine(300, 150, 600, 0);
         gc.strokeLine(300, 200, 600, 0);
