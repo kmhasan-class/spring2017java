@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 /**
@@ -51,7 +52,7 @@ public class FXMLDocumentController implements Initializable {
     public double f(double x) {
         // y = f(x) = x^2
 //        return (x * x * x - 3 * x * x)/ 5000;
-        return Math.sin(x);
+        return 250 * Math.sin(x / 100);
     }
     
     public void plotFunction() {
@@ -94,5 +95,15 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         draw();
     }    
+
+    @FXML
+    private void handleMouseClick(MouseEvent event) {
+        double x = event.getX();
+        double y = event.getY();
+        
+        GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
+        gc.strokeLine(0, 0, x, y);
+        System.out.printf("User clicked at (%.2f, %.2f)\n", x, y);
+    }
     
 }
