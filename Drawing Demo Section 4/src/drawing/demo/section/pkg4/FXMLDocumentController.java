@@ -32,11 +32,18 @@ public class FXMLDocumentController implements Initializable {
         double width = drawingCanvas.getWidth();
         double height = drawingCanvas.getHeight();
         
-        gc.setStroke(Color.LIGHTGRAY);
+        gc.setStroke(Color.RED);
         for (int x = 0; x <= width; x += 20)
             gc.strokeLine(x, 0, x, height);
         
         for (int y = 0; y <= height; y += 20)
+            gc.strokeLine(0, y, width, y);
+        
+        gc.setStroke(Color.BLUE);
+        for (int x = 0; x <= width; x += 100)
+            gc.strokeLine(x, 0, x, height);
+        
+        for (int y = 0; y <= height; y += 100)
             gc.strokeLine(0, y, width, y);
         
     }
@@ -46,10 +53,19 @@ public class FXMLDocumentController implements Initializable {
         
         GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
         gc.setStroke(Color.BLACK);
-        gc.strokeLine(300, 175, 600, 0);
-        gc.strokeLine(300, 150, 600, 0);
-        gc.strokeLine(300, 200, 600, 0);
-        gc.strokeLine(0, 200, 600, 200);
+        gc.setLineWidth(5);
+        gc.setFill(Color.YELLOW);
+        gc.fillRect(300 - 50, 200 - 50, 100, 100);
+        gc.strokeRect(300 - 50, 200 - 50, 100, 100);
+        gc.setFill(Color.GREEN);
+        gc.fillOval(100, 100, 200, 100);
+        gc.strokeOval(100, 100, 200, 100);
+        
+        // Hometasks:
+        // 1. Draw a circle right at the center with radius of 150 pixels
+        // 2. Draw 20 concentric circles in the top left box
+        // 3. Draw a sun (circle + rays)
+        // 4. Draw a regular n-gon (like pentagon)
     }
     
     @Override
