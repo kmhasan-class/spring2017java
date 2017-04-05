@@ -27,6 +27,7 @@ public class FXMLDocumentController implements Initializable {
     private double oldX;
     private double oldY;
     private boolean isFirstLine;
+    private GraphicsContext gc;
     
     @FXML
     private Canvas drawingCanvas;
@@ -36,18 +37,21 @@ public class FXMLDocumentController implements Initializable {
     private TextField brushSizeField;
     @FXML
     private Slider brushSizeSlider;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         isFirstLine = true;
-        brushSizeField.setText("1");
+        brushSizeSlider.setMin(10);
+        brushSizeSlider.setMax(50);
+        brushSizeField.setText("" + brushSizeSlider.getValue());
+        gc = drawingCanvas.getGraphicsContext2D();
+        gc.setLineWidth(brushSizeSlider.getValue());
         colorPicker.setValue(Color.BLACK);
     }    
 
     @FXML
     private void handleMouseClickAction(MouseEvent event) {
-        GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
-        
         double x = event.getX();
         double y = event.getY();
         
@@ -70,14 +74,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleColorSelectionAction(ActionEvent event) {
         Color color = colorPicker.getValue();
-        GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
         gc.setStroke(color);
     }
 
     @FXML
     private void handleChangeBrushSizeAction(ActionEvent event) {
         double strokeWidth = Double.parseDouble(brushSizeField.getText());
-        GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
         gc.setLineWidth(strokeWidth);
     }
 
@@ -86,7 +88,6 @@ public class FXMLDocumentController implements Initializable {
         double brushSize = brushSizeSlider.getValue();
         brushSizeField.setText("" + brushSize);
         double strokeWidth = Double.parseDouble(brushSizeField.getText());
-        GraphicsContext gc = drawingCanvas.getGraphicsContext2D();
         gc.setLineWidth(strokeWidth);
     }
     
