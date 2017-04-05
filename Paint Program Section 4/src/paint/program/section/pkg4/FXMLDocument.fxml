@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="paint.program.section.pkg4.FXMLDocumentController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Canvas fx:id="drawingCanvas" height="720.0" onMouseDragged="#handleMouseClickAction" onMousePressed="#handleMouseClickAction" onMouseReleased="#handleMouseReleasedAction" width="1024.0" />
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Slider fx:id="brushSizeSlider" onMouseDragged="#handleSliderDragAction" onMouseReleased="#handleSliderDragAction" />
+                  <TextField fx:id="brushSizeField" onAction="#handleChangeBrushSizeAction" prefHeight="26.0" prefWidth="41.0" />
+                  <ColorPicker fx:id="colorPicker" onAction="#handleColorSelectionAction" />
+              </items>
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
+            </ToolBar>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
