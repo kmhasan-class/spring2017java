@@ -8,16 +8,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="paint.program.section.pkg4.FXMLDocumentController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paint.program.section.pkg4.FXMLDocumentController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <children>
-            <Canvas fx:id="drawingCanvas" height="720.0" onMouseDragged="#handleMouseClickAction" onMousePressed="#handleMouseClickAction" onMouseReleased="#handleMouseReleasedAction" width="1024.0" />
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleFileSaveAction" text="Save" />
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Canvas fx:id="drawingCanvas" height="720.0" onMouseClicked="#handlePolygonClickAction" onMouseDragged="#handleMouseClickAction" onMousePressed="#handleMouseClickAction" onMouseReleased="#handleMouseReleasedAction" width="1024.0" />
             <ToolBar prefHeight="40.0" prefWidth="200.0">
               <items>
                   <Slider fx:id="brushSizeSlider" onMouseDragged="#handleSliderDragAction" onMouseReleased="#handleSliderDragAction" />
                   <TextField fx:id="brushSizeField" onAction="#handleChangeBrushSizeAction" prefHeight="26.0" prefWidth="41.0" />
                   <ColorPicker fx:id="colorPicker" onAction="#handleColorSelectionAction" />
+                  <ToggleButton fx:id="polygonButton" mnemonicParsing="false" onAction="#handlePolygonToggleAction" text="Polygon" />
+                  <ToggleButton fx:id="freehandButton" mnemonicParsing="false" onAction="#handleFreehandToggleAction" text="Freehand" />
               </items>
                <VBox.margin>
                   <Insets top="14.0" />
