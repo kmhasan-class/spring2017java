@@ -43,8 +43,11 @@ public class FXMLDocumentController implements Initializable {
 
         ballsList.get(1).setvX(1);
         ballsList.get(1).setColor(Color.RED);
-        ballsList.get(2).setvY(5);
+        ballsList.get(1).setxPos(200);
+        
+        ballsList.get(2).setvY(2);
         ballsList.get(2).setColor(Color.BLUE);
+        ballsList.get(2).setxPos(400);
         
         KeyFrame keyFrame = new KeyFrame(Duration.seconds(.05), event -> {
             gc.clearRect(0, 0, drawingCanvas.getWidth(), drawingCanvas.getHeight());
@@ -57,6 +60,19 @@ public class FXMLDocumentController implements Initializable {
                 gc.drawImage(image, ball.getxPos(), ball.getyPos());
                 ball.updateBall();
             }
+            
+            for (int i = 0; i < ballsList.size(); i++)
+                for (int j = i + 1; j < ballsList.size(); j++) {
+                    if (ballsList.get(i).isColliding(ballsList.get(j))) {
+                        System.out.println("COLLISSION between " + i + " " + j);
+                        double tvX = ballsList.get(j).getvX();
+                        double tvY = ballsList.get(j).getvY();
+                        ballsList.get(j).setvX(ballsList.get(i).getvX());
+                        ballsList.get(j).setvY(ballsList.get(i).getvY());
+                        ballsList.get(i).setvX(tvX);
+                        ballsList.get(i).setvY(tvY);
+                    }
+                }
         });
 
         Timeline timeline = new Timeline();
