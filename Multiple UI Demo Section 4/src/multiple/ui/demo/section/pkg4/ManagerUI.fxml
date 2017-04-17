@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="multiple.ui.demo.section.pkg4.ManagerUIController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label text="Manager UI" />
+            <TextField fx:id="inputField" onAction="#handleCopyAction" />
+            <Label fx:id="outputLabel" prefHeight="16.0" prefWidth="171.0" text="Here goes nothing" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
