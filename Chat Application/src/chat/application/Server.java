@@ -29,16 +29,21 @@ public class Server {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Connected with " + clientSocket);
-                InputStream inputStream = clientSocket.getInputStream();
-                
-                BufferedReader input = new BufferedReader(new InputStreamReader(inputStream));
-                int lineNumber = 1;
-                while (true) {
-                    String inputMessage = input.readLine();
-                    if (inputMessage == null || inputMessage.length() == 0)
-                        break;
-                    System.out.printf("Line #%d: %s\n", lineNumber++, inputMessage);
-                }
+
+                MultiThreadedServer thread = new MultiThreadedServer(clientSocket);
+                thread.start();
+
+                /*
+                 InputStream inputStream = clientSocket.getInputStream();
+                 BufferedReader input = new BufferedReader(new InputStreamReader(inputStream));
+                 int lineNumber = 1;
+                 while (true) {
+                 String inputMessage = input.readLine();
+                 if (inputMessage == null || inputMessage.length() == 0)
+                 break;
+                 System.out.printf("Line #%d: %s\n", lineNumber++, inputMessage);
+                 }
+                 */
             }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
